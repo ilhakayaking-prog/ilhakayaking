@@ -4,7 +4,7 @@ function PricingSection() {
   const packages = [
     {
       name: "Sunrise Tour",
-      price: "₹700",
+      price: "₹600",
       duration: "2 Hours",
       time: "5:30 AM – 7:30 AM",
       features: [
@@ -19,9 +19,9 @@ function PricingSection() {
     },
     {
       name: "Sunset Adventure",
-      price: "₹800",
-      duration: "2.5 Hours",
-      time: "4:00 PM – 6:30 PM",
+      price: "₹650",
+      duration: "2 Hours",
+      time: "4:30 PM – 6:30 PM",
       features: [
         "Premium life jackets & equipment",
         "Senior local tour specialist guide",
@@ -34,8 +34,8 @@ function PricingSection() {
     },
     {
       name: "Mangrove Explorer",
-      price: "₹1,200",
-      duration: "3.5 Hours",
+      price: "₹750",
+      duration: "3 Hours",
       time: "Flexible Morning Slots",
       features: [
         "Professional grade touring kayak",
@@ -51,7 +51,7 @@ function PricingSection() {
 
   return (
     <section id="pricing" className="relative py-24 bg-zinc-950 overflow-hidden border-t border-zinc-900">
-      
+
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] glow-gradient-orange opacity-15 pointer-events-none"></div>
 
@@ -77,13 +77,12 @@ function PricingSection() {
           {packages.map((pkg, idx) => (
             <div
               key={idx}
-              className={`relative bg-zinc-900/50 backdrop-blur-md rounded-3xl p-8 border flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] ${
-                pkg.popular 
-                  ? "border-orange-500/50 shadow-xl shadow-orange-500/5 lg:-translate-y-4" 
-                  : "border-white/5 hover:border-white/10"
-              }`}
+              className={`relative bg-zinc-900/50 backdrop-blur-md rounded-3xl p-8 border flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] ${pkg.popular
+                ? "border-orange-500/50 shadow-xl shadow-orange-500/5 lg:-translate-y-4"
+                : "border-white/5 hover:border-white/10"
+                }`}
             >
-              
+
               {/* Popular Glow Ring */}
               {pkg.popular && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-500 to-amber-400 text-zinc-950 text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-md flex items-center gap-1">
