@@ -5,7 +5,6 @@ import FeaturesSection from "./sections/FeaturesSection"
 import GallerySection from "./sections/GallerySection"
 import HeroSection from "./sections/HeroSection"
 import PricingSection from "./sections/PricingSection"
-import TestimonialsSection from "./sections/TestimonialsSection"
 import FAQSection from "./sections/FAQSection"
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
       <FeaturesSection />
       <GallerySection />
       <PricingSection />
-      <TestimonialsSection />
       <FAQSection />
       <ContactSection />
       <Footer />

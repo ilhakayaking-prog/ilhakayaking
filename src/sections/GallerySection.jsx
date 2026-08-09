@@ -6,34 +6,34 @@ function GallerySection() {
 
   const items = [
     {
-      src: "/images/gallery-1.jpg",
-      title: "Golden Hour Sunset",
-      tag: "Sunset Tour"
-    },
-    {
-      src: "/images/gallery-2.jpg",
-      title: "Mangrove Tunnels",
-      tag: "Nature Path"
-    },
-    {
-      src: "/images/gallery-3.jpg",
-      title: "Morning Launch",
+      src: "/images/Sunrise.jpg",
+      title: "Sunrise",
       tag: "Sunrise Tour"
     },
     {
-      src: "/images/gallery-4.jpg",
-      title: "Silent Canals",
+      src: "/images/Sunset.jpg",
+      title: "Sunset",
+      tag: "Sunset Tour"
+    },
+    {
+      src: "/images/Naturepath.jpg",
+      title: "Nature Path",
+      tag: "Nature Path"
+    },
+    {
+      src: "/images/Ecoroute.jpg",
+      title: "Eco Route",
       tag: "Eco Route"
     },
     {
-      src: "/images/gallery-5.jpg",
-      title: "Kayakers Gathering",
+      src: "/images/Grouptour.jpg",
+      title: "Group Tour",
       tag: "Group Tour"
     },
     {
-      src: "/images/gallery-6.jpg",
-      title: "Pizhala Shoreline",
-      tag: "Island View"
+      src: "/images/Sky&cloud.jpg",
+      title: "Sky & Cloud",
+      tag: "Sky & Cloud"
     },
   ]
 
@@ -67,7 +67,7 @@ function GallerySection() {
 
   return (
     <section id="gallery" className="relative py-24 bg-zinc-950 overflow-hidden border-t border-zinc-900">
-      
+
       {/* Background Gradients */}
       <div className="absolute top-0 right-1/4 w-[350px] h-[350px] glow-gradient-emerald opacity-10 pointer-events-none"></div>
       <div className="absolute bottom-0 left-1/4 w-[350px] h-[350px] glow-gradient-orange opacity-15 pointer-events-none"></div>
@@ -80,7 +80,7 @@ function GallerySection() {
             Visual Journal
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white">
-            Moments From Pizhala
+            Moments From Pizhala, Kadamakudy
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-amber-400 mx-auto rounded-full"></div>
           <p className="text-zinc-400 text-base sm:text-lg leading-relaxed pt-2">
@@ -96,7 +96,7 @@ function GallerySection() {
               onClick={() => setActiveImageIndex(index)}
               className="group relative overflow-hidden rounded-3xl border border-white/5 cursor-pointer shadow-lg shadow-black/20"
             >
-              
+
               {/* Media Container */}
               <div className="overflow-hidden h-80 relative">
                 <img
@@ -105,10 +105,10 @@ function GallerySection() {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                
+
                 {/* Visual Glass Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
-                
+
                 {/* Floating expand icon */}
                 <div className="absolute top-4 right-4 w-10 h-10 rounded-xl bg-zinc-950/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   <Maximize2 size={16} />
@@ -139,11 +139,11 @@ function GallerySection() {
 
       {/* Stateful Fullscreen Lightbox Modal */}
       {activeImageIndex !== null && (
-        <div 
+        <div
           className="fixed inset-0 z-[100] bg-zinc-950/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-10 animate-fade-in"
           onClick={() => setActiveImageIndex(null)}
         >
-          
+
           {/* Close button */}
           <button
             onClick={() => setActiveImageIndex(null)}
@@ -163,7 +163,7 @@ function GallerySection() {
           </button>
 
           {/* Image & Title Frame */}
-          <div 
+          <div
             className="max-w-5xl max-h-[85vh] flex flex-col items-center gap-4 relative z-10"
             onClick={(e) => e.stopPropagation()}
           >
@@ -172,7 +172,7 @@ function GallerySection() {
               alt={items[activeImageIndex].title}
               className="max-w-full max-h-[75vh] object-contain rounded-2xl border border-white/10 shadow-2xl animate-scale-up"
             />
-            
+
             <div className="text-center">
               <span className="text-xs text-orange-500 font-bold tracking-widest uppercase">
                 {items[activeImageIndex].tag}

@@ -1,4 +1,5 @@
-import { Instagram, Facebook, MapPin, Waves, Send } from "lucide-react"
+import { Instagram, Facebook, MapPin, Send } from "lucide-react"
+import logo from "../assets/images/Logo_ilha.png"
 
 function Footer() {
   const handleSubmitNewsletter = (e) => {
@@ -21,8 +22,8 @@ function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <a href="#" className="flex items-center gap-3 group">
-              <div className="w-9 h-9 bg-gradient-to-tr from-orange-500 to-amber-400 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-all duration-300">
-                <Waves className="text-zinc-950 font-bold" size={18} />
+              <div className="w-9 h-9 overflow-hidden bg-zinc-900 rounded-xl flex items-center justify-center border border-white/10 transition-all duration-300 shadow-md">
+                <img src={logo} alt="Ilha Kayaking Logo" className="w-full h-full object-cover" />
               </div>
               <span className="font-display font-bold text-lg tracking-tight text-white">
                 Ilha Kayaking
@@ -37,8 +38,8 @@ function Footer() {
             <div className="flex gap-3">
               {[
                 { icon: Instagram, href: "https://instagram.com/ilha_kayaking", label: "Instagram" },
-                { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-                { icon: MapPin, href: "https://maps.app.goo.gl/rm1htL4QUG3CHMfY6", label: "Google Maps" }
+                { icon: Facebook, href: "https://www.facebook.com/share/1WA38B7FR5/", label: "Facebook" },
+                { icon: MapPin, href: "https://maps.app.goo.gl/kAsQSWeBcKjPQLVo7", label: "Google Maps" }
               ].map((item, idx) => {
                 const IconComp = item.icon
                 return (
@@ -100,7 +101,7 @@ function Footer() {
               </li>
               <li>
                 <span className="block text-zinc-500 font-medium">Departure Point</span>
-                <span className="text-zinc-300">Pizhala Ferry, Kochi, Kerala</span>
+                <span className="text-zinc-300">Ferry near Paliyamthuruth water metro station, Kochi, Kerala</span>
               </li>
             </ul>
           </div>

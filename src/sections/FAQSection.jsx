@@ -19,11 +19,11 @@ function FAQSection() {
     },
     {
       q: "Where is the launch point and is parking available?",
-      a: "We launch from the Pizhala Ferry Point in Kochi. There is ample free vehicle parking space available right next to the departure dock. Detailed map coordinates will be shared with you on WhatsApp upon booking."
+      a: "We launch from the Ferry near Paliyamthuruth water metro station. There is ample free vehicle parking space available right next to the departure dock. Detailed map coordinates will be shared with you on WhatsApp upon booking."
     },
     {
       q: "What happens if it rains on the day of the tour?",
-      a: "Light rain can actually make the backwaters incredibly beautiful and serene! However, in case of heavy downpours, strong winds, or unsafe weather alerts, we will cancel the slot and offer you a full refund or free rescheduling."
+      a: "Light rain can actually make the backwaters incredibly beautiful and serene! However, in case of heavy downpours, strong winds, or unsafe weather alerts, we will cancel the slot and offer you a refund or free rescheduling."
     }
   ]
 

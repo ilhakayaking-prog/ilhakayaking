@@ -12,17 +12,17 @@ function FeaturesSection() {
     },
     {
       icon: Compass,
-      title: "Local Specialists",
+      title: "LOCAL SPECIALISTS",
       description:
-        "Our skilled guides know every hidden waterway, native bird species, and Pizhala island historic anecdote.",
+        "Our skilled guides know hidden waterways, tidal variations, and seasonal water currents. They navigate the local village channels safely while identifying operational Chinese fishing nets and historic island landmarks.",
       gradient: "from-orange-500 to-amber-400",
       glowColor: "group-hover:shadow-orange-500/10"
     },
     {
       icon: Leaf,
-      title: "Ecology Driven",
+      title: "ECOLOGY DRIVEN",
       description:
-        "We prioritize low-impact, eco-kayaking. Learn about complex mangrove habitats and local conservation efforts.",
+        "We practice strictly low-impact, eco-friendly paddling across all routes. Our operations prioritize zero-plastic initiatives, wildlife non-disturbance protocols, and local water conservation efforts.",
       gradient: "from-emerald-400 to-cyan-500",
       glowColor: "group-hover:shadow-cyan-500/10"
     },

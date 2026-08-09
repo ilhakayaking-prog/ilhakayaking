@@ -1,9 +1,9 @@
-import { MapPin, Star, Users, Calendar, ArrowRight, Compass, ShieldAlert } from "lucide-react"
+import { MapPin, Users, Calendar, ArrowRight, Compass, ShieldAlert } from "lucide-react"
 
 function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-16">
-      
+
       {/* Background Image Container with Ken Burns zoom effect */}
       <div className="absolute inset-0 overflow-hidden">
         <div
@@ -15,7 +15,7 @@ function HeroSection() {
         {/* Intricate Dark Gradients Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/30"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 via-transparent to-zinc-950/20"></div>
-        
+
         {/* Glow Spheres */}
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] glow-gradient-emerald opacity-30 pointer-events-none animate-pulse-glow"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] glow-gradient-orange opacity-40 pointer-events-none animate-pulse-glow" style={{ animationDelay: '2s' }}></div>
@@ -24,10 +24,10 @@ function HeroSection() {
       {/* Main Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 py-20 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-8 text-left">
-            
+
             {/* Location Badge */}
             <a
               href="https://maps.app.goo.gl/kAsQSWeBcKjPQLVo7"
@@ -51,7 +51,7 @@ function HeroSection() {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-xl font-light">
-              Unwind and connect with nature. Navigate through silent mangrove tunnels, peaceful backwater canals, and unforgettable golden hours in Kochi’s best-kept secret island.
+              Explore serene backwater canals, open river channels, and historical Chinese fishing net installations. Our routes feature unobstructed sunset viewing locations across Kochi’s premier island cluster.
             </p>
 
             {/* CTA Buttons */}
@@ -74,43 +74,16 @@ function HeroSection() {
               </a>
             </div>
 
-            {/* Trust Badging / Social Proof */}
-            <div className="flex flex-wrap items-center gap-8 pt-4">
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-3">
-                  <div className="w-10 h-10 rounded-full border-2 border-zinc-950 bg-zinc-800 flex items-center justify-center text-xs font-bold text-white">IK</div>
-                  <div className="w-10 h-10 rounded-full border-2 border-zinc-950 bg-orange-500 flex items-center justify-center text-xs font-bold text-zinc-950">5★</div>
-                  <div className="w-10 h-10 rounded-full border-2 border-zinc-950 bg-emerald-500 flex items-center justify-center text-xs font-bold text-zinc-950">✓</div>
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">2,500+ Happy Explorers</div>
-                  <div className="text-xs text-zinc-400">Since operations began</div>
-                </div>
-              </div>
 
-              <div className="h-8 w-px bg-zinc-800 hidden sm:block"></div>
-
-              <div className="flex items-center gap-2">
-                <div className="flex text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" stroke="none" />
-                  ))}
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">4.9 Star Rating</div>
-                  <div className="text-xs text-zinc-400">on Google Maps</div>
-                </div>
-              </div>
-            </div>
 
           </div>
 
           {/* Right Floating Card Column */}
           <div className="lg:col-span-5 relative mt-6 lg:mt-0 flex justify-center">
-            
+
             {/* Quick Tour Specs Card */}
             <div className="w-full max-w-sm bg-zinc-900/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl animate-float relative z-10">
-              
+
               {/* Card Title */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
                 <div className="flex items-center gap-2">
@@ -124,7 +97,7 @@ function HeroSection() {
 
               {/* Specs Grid */}
               <div className="space-y-4">
-                
+
                 <div className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/5">
                   <div className="flex items-center gap-3 text-zinc-300">
                     <Calendar size={18} className="text-orange-400" />

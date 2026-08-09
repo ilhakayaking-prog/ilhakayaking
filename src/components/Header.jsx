@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import { Menu, X, Waves } from "lucide-react"
+import { Menu, X } from "lucide-react"
+import logo from "../assets/images/Logo_ilha.png"
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -32,8 +33,8 @@ function Header() {
 
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-to-tr from-orange-500 to-amber-400 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-all duration-300 group-hover:scale-105">
-              <Waves className="text-zinc-950 font-bold" size={20} />
+            <div className="w-10 h-10 overflow-hidden bg-zinc-900 rounded-xl flex items-center justify-center border border-white/10 transition-all duration-300 group-hover:scale-105 shadow-md">
+              <img src={logo} alt="Ilha Kayaking Logo" className="w-full h-full object-cover" />
             </div>
 
             <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-orange-400 transition-all duration-300">

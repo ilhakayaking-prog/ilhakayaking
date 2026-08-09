@@ -5,22 +5,77 @@ function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errors, setErrors] = useState({})
+  const [submitError, setSubmitError] = useState(null)
+
+  const validate = () => {
+    const newErrors = {}
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required"
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters"
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required"
+    } else if (!emailRegex.test(formData.email.trim())) {
+      newErrors.email = "Please enter a valid email address"
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required"
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters"
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setSubmitError(null)
+
+    if (!validate()) {
+      return
+    }
+
     setIsSubmitting(true)
-    
-    // Simulate submission delay
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-      setFormData({ name: "", email: "", message: "" })
-    }, 1200)
+
+    fetch("https://formsubmit.co/ajax/ilhakayaking@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: formData.message.trim()
+      })
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to send message. Please try again.")
+        }
+        return res.json()
+      })
+      .then((data) => {
+        setIsSubmitting(false)
+        setIsSubmitted(true)
+        setFormData({ name: "", email: "", message: "" })
+        setErrors({})
+      })
+      .catch((err) => {
+        setIsSubmitting(false)
+        setSubmitError(err.message || "An error occurred. Please try again later.")
+      })
   }
 
   return (
     <section id="contact" className="relative py-24 bg-zinc-950 overflow-hidden border-t border-zinc-900">
-      
+
       {/* Decorative Gradients */}
       <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] glow-gradient-emerald opacity-10 pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] glow-gradient-orange opacity-15 pointer-events-none"></div>
@@ -45,12 +100,12 @@ function ContactSection() {
 
           {/* Left Column: Contact Cards + Maps */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-8">
-            
+
             {/* Contact Specs Grid */}
             <div className="space-y-6">
-              
+
               {/* Card 1: Phone */}
-              <a 
+              <a
                 href="https://wa.me/918891666118"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -68,7 +123,7 @@ function ContactSection() {
               </a>
 
               {/* Card 2: Email */}
-              <a 
+              <a
                 href="mailto:ilhakayaking@gmail.com"
                 className="group flex items-center gap-5 p-5 bg-zinc-900/40 backdrop-blur-md border border-white/5 hover:border-white/10 rounded-2xl transition-all duration-300 hover:scale-[1.01]"
               >
@@ -91,7 +146,7 @@ function ContactSection() {
                 <div>
                   <h4 className="font-display font-bold text-white text-sm">Departure Launch</h4>
                   <p className="text-zinc-400 text-sm mt-0.5">
-                    Pizhala Ferry, Kochi, Kerala, India
+                    Ferry near Paliyamthuruth water metro station, Kochi, Kerala, India
                   </p>
                 </div>
               </div>
@@ -102,7 +157,7 @@ function ContactSection() {
             <div className="relative overflow-hidden rounded-3xl border border-white/5 h-64 lg:h-full min-h-[240px]">
               <iframe
                 title="Ilha Kayaking location map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.3243177995166!2d76.2690858!3d10.0722214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080f5555555555%3A0xe543efee61053ef5!2sIlha%20Kayaking!5e0!3m2!1sen!2sin!4v1716912345678"
+                src="https://maps.google.com/maps?q=10.0524345,76.2523071&z=17&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -117,7 +172,7 @@ function ContactSection() {
 
           {/* Right Column: Custom Glassmorphic Form Card */}
           <div className="lg:col-span-7 bg-zinc-900/40 backdrop-blur-md border border-white/5 p-8 sm:p-10 rounded-3xl relative flex flex-col justify-center">
-            
+
             {isSubmitted ? (
               <div className="text-center py-12 px-4 space-y-6 animate-scale-up">
                 <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-400 mx-auto border border-emerald-500/20 shadow-xl shadow-emerald-500/5">
@@ -146,12 +201,19 @@ function ContactSection() {
                     <input
                       id="form-name"
                       type="text"
-                      required
                       placeholder="John Doe"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-zinc-950/60 border border-white/5 focus:border-orange-500/40 rounded-xl px-4 py-3.5 text-zinc-100 placeholder-zinc-600 text-sm outline-none focus:ring-1 focus:ring-orange-500/20 transition-all"
+                      onChange={(e) => {
+                        setFormData({ ...formData, name: e.target.value })
+                        if (errors.name) setErrors({ ...errors, name: null })
+                      }}
+                      className={`w-full bg-zinc-950/60 border ${
+                        errors.name ? "border-red-500/50 focus:border-red-500/70 focus:ring-red-500/20" : "border-white/5 focus:border-orange-500/40"
+                      } rounded-xl px-4 py-3.5 text-zinc-100 placeholder-zinc-600 text-sm outline-none focus:ring-1 focus:ring-orange-500/20 transition-all`}
                     />
+                    {errors.name && (
+                      <p className="text-red-500 text-xs font-medium pl-1 mt-1">{errors.name}</p>
+                    )}
                   </div>
 
                   {/* Email Input */}
@@ -160,12 +222,19 @@ function ContactSection() {
                     <input
                       id="form-email"
                       type="email"
-                      required
                       placeholder="name@company.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-zinc-950/60 border border-white/5 focus:border-orange-500/40 rounded-xl px-4 py-3.5 text-zinc-100 placeholder-zinc-600 text-sm outline-none focus:ring-1 focus:ring-orange-500/20 transition-all"
+                      onChange={(e) => {
+                        setFormData({ ...formData, email: e.target.value })
+                        if (errors.email) setErrors({ ...errors, email: null })
+                      }}
+                      className={`w-full bg-zinc-950/60 border ${
+                        errors.email ? "border-red-500/50 focus:border-red-500/70 focus:ring-red-500/20" : "border-white/5 focus:border-orange-500/40"
+                      } rounded-xl px-4 py-3.5 text-zinc-100 placeholder-zinc-600 text-sm outline-none focus:ring-1 focus:ring-orange-500/20 transition-all`}
                     />
+                    {errors.email && (
+                      <p className="text-red-500 text-xs font-medium pl-1 mt-1">{errors.email}</p>
+                    )}
                   </div>
                 </div>
 
@@ -174,14 +243,26 @@ function ContactSection() {
                   <label htmlFor="form-message" className="text-zinc-400 text-xs font-semibold uppercase tracking-wider">Message Description</label>
                   <textarea
                     id="form-message"
-                    required
                     rows="5"
                     placeholder="Tell us about your plans (date, team size, custom requests)..."
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-zinc-950/60 border border-white/5 focus:border-orange-500/40 rounded-xl px-4 py-3.5 text-zinc-100 placeholder-zinc-600 text-sm outline-none focus:ring-1 focus:ring-orange-500/20 transition-all resize-none"
+                    onChange={(e) => {
+                      setFormData({ ...formData, message: e.target.value })
+                      if (errors.message) setErrors({ ...errors, message: null })
+                    }}
+                    className={`w-full bg-zinc-950/60 border ${
+                      errors.message ? "border-red-500/50 focus:border-red-500/70 focus:ring-red-500/20" : "border-white/5 focus:border-orange-500/40"
+                    } rounded-xl px-4 py-3.5 text-zinc-100 placeholder-zinc-600 text-sm outline-none focus:ring-1 focus:ring-orange-500/20 transition-all resize-none`}
                   ></textarea>
+                  {errors.message && (
+                    <p className="text-red-500 text-xs font-medium pl-1 mt-1">{errors.message}</p>
+                  )}
                 </div>
+
+                {/* Submit Error */}
+                {submitError && (
+                  <p className="text-red-500 text-sm font-semibold text-center mt-2">{submitError}</p>
+                )}
 
                 {/* Submit Button */}
                 <button
