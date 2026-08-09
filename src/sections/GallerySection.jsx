@@ -6,32 +6,38 @@ function GallerySection() {
 
   const items = [
     {
-      src: "/images/Sunrise.jpg",
+      src: "/images/Sunrise.webp",
+      thumb: "/images/Sunrise-thumb.webp",
       title: "Sunrise",
       tag: "Sunrise Tour"
     },
     {
-      src: "/images/Sunset.jpg",
+      src: "/images/Sunset.webp",
+      thumb: "/images/Sunset-thumb.webp",
       title: "Sunset",
       tag: "Sunset Tour"
     },
     {
-      src: "/images/Naturepath.jpg",
+      src: "/images/Naturepath.webp",
+      thumb: "/images/Naturepath-thumb.webp",
       title: "Nature Path",
       tag: "Nature Path"
     },
     {
-      src: "/images/Ecoroute.jpg",
+      src: "/images/Ecoroute.webp",
+      thumb: "/images/Ecoroute-thumb.webp",
       title: "Eco Route",
       tag: "Eco Route"
     },
     {
-      src: "/images/Grouptour.jpg",
+      src: "/images/Grouptour.webp",
+      thumb: "/images/Grouptour-thumb.webp",
       title: "Group Tour",
       tag: "Group Tour"
     },
     {
-      src: "/images/Sky&cloud.jpg",
+      src: "/images/Sky&cloud.webp",
+      thumb: "/images/Sky&cloud-thumb.webp",
       title: "Sky & Cloud",
       tag: "Sky & Cloud"
     },
@@ -100,7 +106,7 @@ function GallerySection() {
               {/* Media Container */}
               <div className="overflow-hidden h-80 relative">
                 <img
-                  src={item.src}
+                  src={item.thumb}
                   alt={item.title}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"

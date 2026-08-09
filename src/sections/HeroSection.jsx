@@ -9,7 +9,7 @@ function HeroSection() {
         <div
           className="absolute inset-0 bg-cover bg-center scale-105 animate-ken-burns"
           style={{
-            backgroundImage: "url('/images/hero-kayak.jpg')",
+            backgroundImage: "url('/images/hero-kayak.webp')",
           }}
         />
         {/* Intricate Dark Gradients Overlay */}
