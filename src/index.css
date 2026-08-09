@@ -62,7 +62,7 @@
     transform: scale(1) translate(0px, 0px);
   }
   50% {
-    transform: scale(1.08) translate(10px, -5px);
+    transform: scale(1.03) translate(4px, -2px);
   }
   100% {
     transform: scale(1) translate(0px, 0px);
@@ -83,7 +83,7 @@
 }
 
 .animate-ken-burns {
-  animation: ken-burns 25s ease-in-out infinite;
+  animation: ken-burns 45s ease-in-out infinite;
 }
 
 /* Custom Backdrop Grids */

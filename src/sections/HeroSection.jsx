@@ -29,12 +29,17 @@ function HeroSection() {
           <div className="lg:col-span-7 space-y-8 text-left">
             
             {/* Location Badge */}
-            <div className="inline-flex items-center gap-2.5 bg-zinc-900/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full shadow-lg shadow-black/10">
-              <MapPin size={16} className="text-orange-500 animate-pulse" />
-              <span className="text-xs font-semibold tracking-wider uppercase text-zinc-300">
+            <a
+              href="https://maps.app.goo.gl/kAsQSWeBcKjPQLVo7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2.5 bg-zinc-900/80 hover:bg-zinc-900/100 hover:border-orange-500/50 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full shadow-lg shadow-black/10 transition-all duration-300 cursor-pointer"
+            >
+              <MapPin size={16} className="text-orange-500 group-hover:scale-110 transition-transform animate-pulse" />
+              <span className="text-xs font-semibold tracking-wider uppercase text-zinc-300 group-hover:text-white transition-colors">
                 Pizhala Backwaters • Kochi, Kerala
               </span>
-            </div>
+            </a>
 
             {/* Premium Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold leading-[1.1] text-white tracking-tight">
