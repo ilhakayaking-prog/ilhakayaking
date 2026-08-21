@@ -4,7 +4,7 @@ function PricingSection() {
   const packages = [
     {
       name: "Sunrise Tour",
-      price: "₹600",
+      price: "₹700",
       duration: "2 Hours",
       time: "5:30 AM – 7:30 AM",
       features: [
@@ -19,7 +19,7 @@ function PricingSection() {
     },
     {
       name: "Sunset Adventure",
-      price: "₹650",
+      price: "₹800",
       duration: "2 Hours",
       time: "4:30 PM – 6:30 PM",
       features: [
@@ -34,7 +34,7 @@ function PricingSection() {
     },
     {
       name: "Mangrove Explorer",
-      price: "₹750",
+      price: "₹1200",
       duration: "3 Hours",
       time: "Flexible Morning Slots",
       features: [
