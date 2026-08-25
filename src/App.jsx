@@ -10,6 +10,7 @@ import FAQSection from "./sections/FAQSection"
 function App() {
   return (
     <>
+      <Header />
       <HeroSection />
       <FeaturesSection />
       <GallerySection />
