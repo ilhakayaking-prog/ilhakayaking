@@ -2,14 +2,14 @@ import { MapPin, Users, Calendar, ArrowRight, Compass, ShieldAlert } from "lucid
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-14">
 
       {/* Background Image Container with Ken Burns zoom effect */}
       <div className="absolute inset-0 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center scale-105 animate-ken-burns"
           style={{
-            backgroundImage: "url('/images/hero-kayak.webp')",
+            backgroundImage: "url('/images/hero-kayak.jpeg')",
           }}
         />
         {/* Intricate Dark Gradients Overlay */}
